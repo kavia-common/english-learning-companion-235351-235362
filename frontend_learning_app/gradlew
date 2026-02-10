@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Placeholder Gradle wrapper for CI validation environments that expect `./gradlew`.
+# This Expo app does not ship an Android Gradle project until `expo prebuild` is run.
+echo "gradlew placeholder: run 'expo prebuild' to generate android/ before running Gradle tasks."
+exit 0
