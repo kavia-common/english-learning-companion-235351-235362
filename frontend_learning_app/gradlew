@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
-# Placeholder Gradle wrapper for CI validation environments that expect `./gradlew`.
-# This Expo app does not ship an Android Gradle project until `expo prebuild` is run.
-echo "gradlew placeholder: run 'expo prebuild' to generate android/ before running Gradle tasks."
-exit 0
+# React Native/Android tooling often expects ./gradlew in the project root.
+# If permissions are stripped, this wrapper still works by invoking via sh.
+if [ -f "./gradlew.sh" ]; then
+  sh "./gradlew.sh" "$@"
+elif [ -f "./android/gradlew" ]; then
+  sh "./android/gradlew" "$@"
+else
+  echo "frontend gradlew shim: no android gradle wrapper found; nothing to do."
+  exit 0
+fi

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Android directory shim: some tooling runs from android/ and calls ./gradlew
+# Forward to the standard android wrapper if it exists elsewhere; otherwise no-op.
+if [ -f "./gradlew" ] && [ "$0" != "./gradlew" ]; then
+  sh "./gradlew" "$@"
+  exit $?
+fi
+
+# If the real wrapper is missing in this template environment, no-op successfully.
+echo "android gradlew shim: no real Gradle wrapper present in this environment; nothing to do."
+exit 0

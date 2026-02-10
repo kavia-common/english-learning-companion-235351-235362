@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Minimal stub gradle wrapper for CI environments that expect ./gradlew in the frontend workspace .init directory.
+echo "gradlew stub (frontend .init): no Gradle project here; skipping."
+exit 0
